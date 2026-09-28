@@ -1,0 +1,284 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Happy Birthday Bhai ❤️</title> 
+    <style> 
+        * { 
+            box-sizing: border-box; 
+        } 
+        body { 
+            margin: 0; 
+            font-family: Arial, sans-serif; 
+            background: rgba(6, 11, 147, 0.612); 
+            color: rgb(48, 190, 159); 
+            text-align: center; 
+            overflow-x: hidden;
+            position: relative;
+        } 
+
+        /* --- BALLOON ANIMATION STYLES --- */
+        .balloon-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 3; /* Keeps balloons behind the text/slides */
+        }
+        .balloon {
+            position: absolute;
+            bottom: -150px;
+            width: 40px;
+            height: 55px;
+            background-color: rgba(255, 105, 180, 0.6);
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            animation: floatUp 8s infinite linear;
+        }
+        .balloon::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 18px;
+            width: 2px;
+            height: 15px;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        /* Randomizing balloon positions and speeds */
+        .balloon:nth-child(1) { left: 10%; animation-duration: 7s; animation-delay: 0s; background: rgba(255, 182, 193, 0.6); }
+        .balloon:nth-child(2) { left: 30%; animation-duration: 9s; animation-delay: 2s; background: rgba(255, 105, 180, 0.6); }
+        .balloon:nth-child(3) { left: 50%; animation-duration: 6s; animation-delay: 1s; background: rgba(173, 216, 230, 0.6); }
+        .balloon:nth-child(4) { left: 70%; animation-duration: 10s; animation-delay: 3s; background: rgba(255, 215, 0, 0.6); }
+        .balloon:nth-child(5) { left: 90%; animation-duration: 8s; animation-delay: 4s; background: rgba(221, 160, 221, 0.6); }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-110vh) rotate(20deg);
+                opacity: 0;
+            }
+        }
+        /* -------------------------------- */
+
+        .slide { 
+            display: none; 
+            min-height: 100vh; 
+            padding: 50px 20px; 
+            justify-content: center; 
+            align-items: center; 
+            flex-direction: column; 
+            position: relative;
+            z-index: 2; /* Keeps content above balloons */
+        } 
+        .slide.active { 
+            display: flex; 
+        } 
+        h1 { 
+            font-size: 45px; 
+            margin-bottom: 20px; 
+        } 
+        h2 { 
+            font-size: 32px; 
+        } 
+        p { 
+            max-width: 700px; 
+            font-size: 20px; 
+            line-height: 1.7; 
+        } 
+        .brother-photo { 
+            width: 320px; 
+            height: 320px; 
+            object-fit: fill; 
+            border-radius: 50%; 
+            border: 10px solid white; 
+        } 
+        .memory-photo { 
+            width: 300px; 
+            max-width: 90%; 
+            border-radius: 20px; 
+            margin: 20px; 
+        } 
+        button { 
+            padding: 12px 25px; 
+            margin: 10px; 
+            border: none; 
+            border-radius: 25px; 
+            font-size: 17px; 
+            cursor: pointer; 
+        } 
+        .next { 
+            background: white; 
+            color: rgb(188, 130, 130); 
+        } 
+        .back { 
+            background: #c58a8a; 
+            color: rgb(255, 255, 255); 
+        } 
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10;
+            background: rgba(0,0,0,0.6);
+            padding: 5px;
+            border-radius: 10px;
+        }
+    </style> 
+</head> 
+<body> 
+
+    <!-- FLOATING BALLOONS -->
+    <div class="balloon-container">
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+    </div>
+
+    <!-- BACKGROUND MUSIC PLAYER -->
+    <div class="music-player">
+        <audio controls autoplay loop>
+            <source src="nastelbom-happy-birthday-495860.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <!-- SLIDE 1 --> 
+    <section class="slide active"> 
+        <h1>🎂 Happy Birthday Bhai ❤️</h1> 
+        <img src="WhatsApp Image 2026-09-25 at 20.17.03 (1).jpeg" class="brother-photo" alt="Brother Photo"> 
+        <h2>To My Amazing Elder Brother</h2> 
+        <p> 
+            You are not just my brother, 
+            you are my guide, my supporter, 
+            and one of the most important people in my life. 
+        </p> 
+        <button class="next" onclick="nextSlide()">Start ❤️ →</button> 
+    </section> 
+
+    <!-- SLIDE 2 --> 
+    <section class="slide"> 
+        <h1>💌 A Special Message</h1> 
+        <p> 
+            Dear Bhai, 
+            <br><br> 
+            Life would not have been the same without you. 
+            Thank you for always supporting me, guiding me 
+            and standing beside me. 
+            <br><br> 
+            Sometimes I may not say it, 
+            but I am genuinely lucky to have an elder brother like you. 
+            <br><br> 
+            I hope you achieve everything you dream of. 
+            Keep smiling and keep shining. ❤️ 
+        </p> 
+        <div> 
+            <button class="back" onclick="prevSlide()">← Back</button> 
+            <button class="next" onclick="nextSlide()">Next →</button> 
+        </div> 
+    </section> 
+
+    <!-- SLIDE 3 --> 
+    <section class="slide"> 
+        <h1>🌸 A Beautiful Memory with His Grandparent</h1> 
+        <img src="memory 1.jpeg" class="memory-photo" alt="Grandparent Memory"> 
+        <p> 
+            Some moments become memories, 
+            and some memories become priceless. ❤️ 
+        </p> 
+        <div> 
+            <button class="back" onclick="prevSlide()">← Back</button> 
+            <button class="next" onclick="nextSlide()">Next →</button> 
+        </div> 
+    </section> 
+
+    <!-- SLIDE 4 --> 
+    <section class="slide"> 
+        <h1>🌸 A Memory of School Play with His Loving Father</h1> 
+        <img src="father memory .jpeg" class="memory-photo" alt="Father and brother at school play"> 
+        <p> 
+            This image captures the journey to the very first school play that my brother performed in. 
+        </p> 
+        <div> 
+            <button class="back" onclick="prevSlide()">← Back</button> 
+            <button class="next" onclick="nextSlide()">Next →</button> 
+        </div> 
+    </section> 
+
+    <!-- SLIDE 5 --> 
+    <section class="slide"> 
+        <h1>🌸 My first Birthday with my brother</h1> 
+        <img src="WhatsApp Image 2026-09-25 at 21.00.38.jpeg" class="memory-photo" alt="First birthday memory"> 
+        <p> 
+            ME with my protective brothers. 
+        </p> 
+        <div> 
+            <button class="back" onclick="prevSlide()">← Back</button> 
+            <button class="next" onclick="nextSlide()">Next →</button> 
+        </div> 
+    </section> 
+
+    <!-- SLIDE 6 --> 
+    <section class="slide"> 
+        <h1>🌸 My Brother and His Future Wife's Loving Memory</h1> 
+        <img src="WhatsApp Image 2026-09-25 at 22.12.31.jpeg" class="memory-photo" alt="Future partner memory"> 
+        <p> 
+            My brother and my family with my future wife and his caring partner. 
+        </p> 
+        <div> 
+            <button class="back" onclick="prevSlide()">← Back</button> 
+            <button class="next" onclick="nextSlide()">Next →</button> 
+        </div> 
+    </section> 
+
+    <!-- SLIDE 7 --> 
+    <section class="slide"> 
+        <h1>❤️ One Last Thing</h1> 
+        <p> 
+            No matter where life takes us, 
+            you will always be my elder brother 
+            and someone I will always look up to. 
+            <br><br> 
+            Happy Birthday Bhai! 🎂🥳 
+            <br><br> 
+            Stay happy. Stay blessed. 
+            And always keep smiling. ❤️ 
+        </p> 
+        <div>
+            <button class="back" onclick="prevSlide()">← Back</button>
+        </div>
+    </section> 
+
+    <script> 
+        let currentSlide = 0; 
+        const slides = document.querySelectorAll(".slide"); 
+
+        function showSlide(index) { 
+            slides.forEach(slide => { 
+                slide.classList.remove("active"); 
+            }); 
+            slides[index].classList.add("active"); 
+        } 
+
+        function nextSlide() { 
+            if (currentSlide < slides.length - 1) { 
+                currentSlide++; 
+                showSlide(currentSlide); 
+            } 
+        } 
+
+        function prevSlide() { 
+            if (currentSlide > 0) { 
+                currentSlide--; 
+                showSlide(currentSlide); 
+            } 
+        } 
+    </script> 
+</body> 
+</html>
